@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello CategoryController!
+{% endblock %}
+
+{% block content %}
+	<main>
+		<section class="py-5  container">
+			<div class="row ">
+				{% for item in categories %}
+					<div class="col-lg-3">
+						<div class="list-group">
+							<a href="{{ url('app_category', {slug: item.slug}) }}" class="list-group-item">
+								<h4 class="list-group-item-heading">
+									{{ item.name }}
+								</h4>
+								<p class="list-group-item-text">
+									{{ item.offers | length }}
+									offer(s)
+								</p>
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
+	</main>
+
+{% endblock %}

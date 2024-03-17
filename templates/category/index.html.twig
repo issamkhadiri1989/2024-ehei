@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+	<main>
+		<section class="py-5  container">
+			<ul class="breadcrumb">
+				<li>
+					<a href="#">Home</a>
+				</li>
+				<li class="active">{{ category.name | upper }}</li>
+			</ul>
+			<div class="row ">
+				{% for item in category.offers %}
+					<div class="col-lg-3">
+						{{ include('partials/_offer_item.html.twig', {offer: item}) }}
+					</div>
+				{% endfor %}
+			</div>
+		</section>
+	</main>
+{% endblock %}
